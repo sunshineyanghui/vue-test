@@ -1,31 +1,87 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+  <div class="order">
+    <div class="order-title">
+      <ul>
+        <li :class="active ===1 ? 'active' : ''" @click="clickActive(1)">全部</li>
+        <li :class="active===2 ? 'active' : ''"@click="clickActive(2)">已付款</li>
+        <li @click="clickActive(3)">已退款</li>
+        <li @click="clickActive(4)">已完成</li>
+      </ul>
+    </div>
+    <div class="order-list">
+      <ul v-if="orderlistall">
+        <li>
+          <div class="order-list-left"><img :src="imglogo"></div>
+          <div class="order-list-right">
+            <h3>是肯定还上课哈市</h3>
+            <p>的水电费水电费水电费</p>
+          </div>
+        </li>
+        <li>
+          <div class="order-list-left"><img :src="imglogo"></div>
+          <div class="order-list-right">
+            <h3>是肯定还上课哈市</h3>
+            <p>的水电费水电费水电费</p>
+          </div>
+        </li><li>
+          <div class="order-list-left"><img :src="imglogo"></div>
+          <div class="order-list-right">
+            <h3>是肯定还上课哈市</h3>
+            <p>的水电费水电费水电费</p>
+          </div>
+        </li>
+      </ul>
+      <ul v-if="orderlistpay">
+        <li>
+          <div class="order-list-left"><img :src="imglogo"></div>
+          <div class="order-list-right">
+            <h3>1是肯定还上课哈市</h3>
+            <p>的水电费水电费水电费</p>
+          </div>
+        </li>
+        <li>
+          <div class="order-list-left"><img :src="imglogo"></div>
+          <div class="order-list-right">
+            <h3>2是肯定还上课哈市</h3>
+            <p>的水电费水电费水电费</p>
+          </div>
+        </li><li>
+          <div class="order-list-left"><img :src="imglogo"></div>
+          <div class="order-list-right">
+            <h3>3是肯定还上课哈市</h3>
+            <p>的水电费水电费水电费</p>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
+import imglogo from '@/assets/logo.png'
 export default {
   name: 'HelloWorld',
   data () {
     return {
+      imglogo,
+      orderlistall: true,
+      active: 1,
+      orderlistpay: false,
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    clickActive(event) {
+      console.log('clickActive', event)
+      if (event === 1) {
+        this.active = 1
+        this.orderlistall = true
+        this.orderlistpay = false
+      } else {
+        this.active = 2
+        this.orderlistpay = true
+        this.orderlistall = false
+      }
     }
   }
 }
@@ -33,18 +89,42 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+ul{
+  margin: 0;
+  padding:0;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+ul li{
+ list-style: none;
+ margin: 0;
+ padding:0;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+.order{
+
 }
-a {
-  color: #42b983;
+.order-title ul{
+  display: flex;
+  justify-content: space-between;
+}
+.order-title ul li{
+  width:25%;
+}
+.order-list {
+
+}
+.order-list ul li{
+  display: flex;
+  justify-content: space-between
+}
+.order-list-left {
+  width: 30%;
+}
+.order-list-left img {
+  width:100%;
+}
+.order-list-right {
+  width: 70%;
+}
+.active{
+  background-color: #ccc;
 }
 </style>
