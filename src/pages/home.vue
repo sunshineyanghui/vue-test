@@ -20,7 +20,7 @@
                         <li><img :src="img1"></li>
                     </ul>  
                 </div>
-                <div>
+                <div class="new-desc">
                     <span>巷子里吃火锅</span>
                     <span>154阅读</span>
                     <span>2分钟前</span>
@@ -47,14 +47,14 @@
 </script>
 <style>
     header{
-        height: 88px;
-        line-height: 88px;
-        border-bottom: 1px solid #E6E6E6;
+        height: 1.173rem;
+        line-height: 1.173rem;
+        border-bottom: .013333rem solid #E6E6E6;
     }
     header ul {
         display: flex;
         justify-content: space-around;
-        font-size: 32px;
+        font-size: .426667rem;
     }
     header ul li{
         
@@ -65,19 +65,22 @@
         margin: 0 auto;
     }
     .newlist{
-        padding: 40px 0;
+        padding: .533333rem 0;
         border-bottom: 1px solid #E6E6E6;
     }
     .newlist .new-title{
-        font-size: 36px;
+        font-size: .48rem;
     }
     .img-list ul {
         display: flex;
         justify-content: space-between;
-        padding: 15px 0;
+        padding: .2rem 0;
     }
     .img-list img{
         display: block;
-        width: 226px;
+        width: 3.013333rem;
+    }
+    .new-desc {
+        font-size: .16rem;
     }
 </style>
